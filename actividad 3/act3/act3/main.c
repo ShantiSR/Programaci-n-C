@@ -27,20 +27,20 @@ void impmenu(){
 }
 
 int novaentrada(agenda age[], int pos2){
-	printf("\nInroducir nom:");
+	printf("\nNombre:");
 	scanf("%s",age[pos2].nom);
-	printf("Introducir cognom:");
+	printf("Apellido:");
 	scanf("%s",age[pos2].cognom);
-	printf("Introducir telefòn:");
+	printf("Telefono:");
 	scanf("%s",age[pos2].tel);
-	printf("Operació efectuada amb exit!\n");
+	printf("Operacion efectuada con exito!\n");
 	pos2++;
 	return pos2;
 }
 
 void llistaragenda(agenda age[], int pos1){
 	int cont=0;
-	printf("\nNom\tCognom\tTelèfon\n");
+	printf("\nNom\tApellido\tTelefono\n");
 	while(cont<pos1)
 	{
 		printf("%s\t%s\t%s\n",age[cont].nom, age[cont].cognom, age[cont].tel);
@@ -51,11 +51,11 @@ void llistaragenda(agenda age[], int pos1){
 void buscarcognom(agenda age[],int pos1){
 	int c=0;
 	char cognom[30];
-	printf("\nIntrodueix cognom:");
+	printf("\nIntroduce apellido:");
 	scanf("%s",cognom);
 	while(c<pos1){
 		if (strcasecmp(cognom,age[c].cognom)==0){
-			printf("Nom: %s\tTelèfon: %s\n",age[c].nom, age[c].tel);
+			printf("Nom: %s\tTelefono: %s\n",age[c].nom, age[c].tel);
 		}
 		c++;
 	}
@@ -66,21 +66,21 @@ int esborrarentrada(agenda age[],int pos1){
 	char nom[30];
 	char resp;
 	int cont;
-	printf("\nIntrodueix nom de la persona que voleu esborrar:");
+	printf("\nIntroduce el nombre del contacto que deseas borrar:");
 	scanf("%s",nom);
 	getchar();
 	while (c<pos1 && trobat==0)
 	{
 		if (strcasecmp(nom,age[c].nom)==0)
 		{
-			printf("¿ Voleu esborrar la següent entrada?[S/N]\nNom: %s\tCognom: %s\tTelèfon: %s\n",age[c].nom, age[c].cognom, age[c].tel);
-			printf("\nOpció:");
+			printf("¿Quieres borrar el siguiente contacto?[S/N]\nNombre: %s\tApellido: %s\tTelefono: %s\n",age[c].nom, age[c].cognom, age[c].tel);
+			printf("\nOpcion:");
 			scanf("%c",&resp);
 			if (resp=='s' || resp=='S')
 			{
 				trobat=1;
 				cont=c;
-				printf("pasa");
+				printf("OK");
 			}
 		}
 		c++;
@@ -106,7 +106,7 @@ int main(){
 	int opcio;
 	int pos1=0;
 	impmenu();
-	printf("Introdueix opció:");
+	printf("Elige opcion:");
 	scanf("%d",&opcio);
     
 	while(opcio != 5)
@@ -131,7 +131,7 @@ int main(){
             
         }
         impmenu();
-        printf("Introdueix opció:");
+        printf("Elige opcion:");
         scanf("%d",&opcio);
 	}
 	return 0;
